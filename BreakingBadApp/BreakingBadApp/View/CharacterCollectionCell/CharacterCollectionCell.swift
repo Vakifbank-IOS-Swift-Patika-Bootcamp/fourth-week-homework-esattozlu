@@ -48,6 +48,7 @@ class CharacterCollectionCell: UICollectionViewCell {
         guard let character = character else { return }
         NetworkManager.getImage(from: character.img) { image in
             guard let image = image else { return }
+            self.characterImageView.image = UIImage()
             self.characterImageView.image = image
         }
     }

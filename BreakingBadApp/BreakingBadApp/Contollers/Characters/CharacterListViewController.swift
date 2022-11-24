@@ -10,6 +10,7 @@ import UIKit
 class CharacterListViewController: UIViewController {
 
     @IBOutlet weak var characterCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var characters = [CharacterModel]()
     
     override func viewDidLoad() {
@@ -24,7 +25,9 @@ class CharacterListViewController: UIViewController {
     
     // characters service call
     func getCharacters() {
+        activityIndicator.startAnimating()
         NetworkManager.getCharacters { characters, error in
+            self.activityIndicator.stopAnimating()
             if let characters = characters {
                 self.characters = characters
             } else {

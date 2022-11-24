@@ -41,7 +41,7 @@ class CharacterDetailsViewController: UIViewController {
         occupationTextField.text = occupationSring
         
         var appearedSeasonString = ""
-        character.appearance.forEach{ appearedSeasonString += "\($0), "}
+        character.appearance.forEach{ appearedSeasonString += "\($0) "}
         appearedSeasons.text = appearedSeasonString
     }
     
@@ -65,7 +65,12 @@ class CharacterDetailsViewController: UIViewController {
         characterImageView.layer.cornerRadius = 15
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let characterQuotesVC = segue.destination as? CharacterQuotesViewController
+        characterQuotesVC?.character = character
+    }
+    
     @IBAction func showQuotesButtonClicked(_ sender: Any) {
-        
+        performSegue(withIdentifier: "toCharacterQuotes", sender: nil)
     }
 }
