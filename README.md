@@ -57,5 +57,3 @@ Uygulama, Characters, Episodes, ve IMDB page olmak üzere 3 tab'den ve bu tabler
 </div>
 
 - Dizinin IMDB sayfası webview'da gösterilir. Sol üstte sayfa refresh butonu, sağ üstte dizinin IMDB sayfasına geri dönebilmek için homepage butonu bulunur.
-
-<iframe src="https://drive.google.com/file/d/1hZuEQA447b1Jff_nJA0YCQh879JOy-4Y/preview" width="360" height="640" allow="autoplay"></iframe>
