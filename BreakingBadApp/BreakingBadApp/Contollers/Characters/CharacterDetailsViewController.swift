@@ -26,6 +26,7 @@ class CharacterDetailsViewController: UIViewController {
         configureLabels()
     }
     
+    //configrues labels
     func configureLabels() {
         guard let character = character else { return }
         NetworkManager.getImage(from: character.img) { image in
@@ -45,6 +46,7 @@ class CharacterDetailsViewController: UIViewController {
         appearedSeasons.text = appearedSeasonString
     }
     
+    // configures other components
     func configureComponents() {
         characterCard.backgroundColor = .systemGray6
         characterCard.layer.cornerRadius = 15
@@ -65,10 +67,12 @@ class CharacterDetailsViewController: UIViewController {
         characterImageView.layer.cornerRadius = 15
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterQuotesVC = segue.destination as? CharacterQuotesViewController
         characterQuotesVC?.character = character
     }
+    
     
     @IBAction func showQuotesButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "toCharacterQuotes", sender: nil)

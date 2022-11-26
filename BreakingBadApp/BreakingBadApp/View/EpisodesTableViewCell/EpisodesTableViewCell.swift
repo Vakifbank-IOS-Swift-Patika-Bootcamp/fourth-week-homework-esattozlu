@@ -16,24 +16,31 @@ class EpisodesTableViewCell: UITableViewCell {
     
     var episode: EpisodeModel? {
         didSet {
-            episodeTextField.text = "Episode: \(episode?.episode ?? "")"
-            titleTextField.text = episode?.title
-            dateTextField.text = episode?.airDate
-            containerView.layer.cornerRadius = 10
-            
-            containerView.layer.cornerRadius = 15
-            containerView.layer.shadowColor = UIColor.black.cgColor
-            containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-            containerView.layer.shadowRadius = 15
-            containerView.layer.shadowOpacity = 0.3
-            containerView.layer.masksToBounds = false
+            configureComponents()
         }
     }
+    
+    // configures components
+    func configureComponents() {
+        episodeTextField.text = "Episode: \(episode?.episode ?? "")"
+        titleTextField.text = episode?.title
+        dateTextField.text = episode?.airDate
+        containerView.layer.cornerRadius = 10
+        
+        containerView.layer.cornerRadius = 15
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        containerView.layer.shadowRadius = 15
+        containerView.layer.shadowOpacity = 0.3
+        containerView.layer.masksToBounds = false
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

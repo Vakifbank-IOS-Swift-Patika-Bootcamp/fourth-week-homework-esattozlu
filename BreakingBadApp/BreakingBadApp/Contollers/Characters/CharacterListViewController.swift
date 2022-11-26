@@ -23,7 +23,7 @@ class CharacterListViewController: UIViewController {
         getCharacters()
     }
     
-    // characters service call
+    // gets all characters
     func getCharacters() {
         activityIndicator.startAnimating()
         NetworkManager.getCharacters { characters, error in
@@ -72,7 +72,7 @@ extension CharacterListViewController: UICollectionViewDelegate, UICollectionVie
 
 extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     
-    // for create 2 cells in a row
+    // creates 2 cells in a row in CollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width                       = view.bounds.width
         let padding: CGFloat            = 12
@@ -82,7 +82,7 @@ extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
         return .init(width: itemWidth, height: itemWidth + 40)
     }
     
-    // for determine section inset
+    // determines section inset
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         .init(top: 10, left: 10, bottom: 10, right: 10)
     }

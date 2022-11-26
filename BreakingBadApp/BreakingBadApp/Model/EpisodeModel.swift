@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Breaking Bad Episodes Model
 struct EpisodeModel: Codable {
     let episodeId: Int
     let title: String

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Character Quotes Model
 struct QuoteModel: Codable {
     let quote: String
     let author: String

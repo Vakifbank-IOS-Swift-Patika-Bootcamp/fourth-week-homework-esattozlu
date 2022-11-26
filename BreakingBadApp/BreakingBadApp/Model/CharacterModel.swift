@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Breaking Bad Characters Model
 struct CharacterModel: Codable {
     let charId: Int
     let name: String

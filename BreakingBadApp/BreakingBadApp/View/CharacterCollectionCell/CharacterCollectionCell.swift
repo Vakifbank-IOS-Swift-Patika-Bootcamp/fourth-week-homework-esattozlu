@@ -14,23 +14,29 @@ class CharacterCollectionCell: UICollectionViewCell {
             characterImageView.layer.cornerRadius = 10
         }
     }
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var birthday: UILabel!
     @IBOutlet weak var nickname: UILabel!
     var character: CharacterModel? {
         didSet {
-            name.text       = character?.name
-            birthday.text   = character?.birthday
-            nickname.text   = character?.nickname
-            characterImageView.image = UIImage()
-            getCharacterImage()
+            configureComponents()
             configureCell()
+            getCharacterImage()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    // configures components
+    func configureComponents() {
+        name.text       = character?.name
+        birthday.text   = character?.birthday
+        nickname.text   = character?.nickname
+        characterImageView.image = UIImage()
     }
     
     // cell configuration
@@ -44,6 +50,7 @@ class CharacterCollectionCell: UICollectionViewCell {
         layer.masksToBounds = false
     }
 
+    // gets image of characters
     func getCharacterImage() {
         guard let character = character else { return }
         NetworkManager.getImage(from: character.img) { image in

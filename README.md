@@ -1,40 +1,61 @@
-# fourth-week-homework
 
-1- https://breakingbadapi.com/  API kullanılarak bir uygulama geliştirilecektir. Aşağıda detaylar verilmiştir.
+# Fourth-Week-Homework
+
+## BreakingBadApp
 --
+Breaking Bad App, Breaking Bad karakterlerinin bilgilerini, repliklerini, sezon bölümlerinin bilgilerini ve bölümlerde oynayan karakterleri gösteren, dizinin IMDB sayfasının incelenebildiği bir uygulamadır.
+Uygulama, Characters, Episodes, ve IMDB page olmak üzere 3 tab'den ve bu tablere bağlı detay sayfaları ve viewlerinden oluşur.
 
-• Uygulama tablı yapıda olacaktır.(Açılış tabbar) ve 3 ayrı tab olacaktır.
-• Activity indicator kullanılmalıdır.
-• Alert gösterimi yapılmalıdır.
+### 1. Characters Tab
+<div align="center">
+<table>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/96587699/204105329-f1e44823-65d3-4725-97aa-c783903dc323.png" alt="drawing" width="275"/></td>  
+<td><img src="https://user-images.githubusercontent.com/96587699/204105315-48e02b67-dc21-42ae-a354-ea88dd910d4d.png" alt="drawing" width="275"/></td>  
+</td>  
+</tr>
+</table>
+</div>
+<div align="center">
+<table>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/96587699/204105319-ad31c97f-d78a-4397-b6d3-e48f27ff33d8.png" alt="drawing" width="275
+"/></td>  
+<td><img src="https://user-images.githubusercontent.com/96587699/204105323-ff29a532-6d1a-4e02-9b61-0339e489e55a.png" alt="drawing" width="275
+"/></td>  
+</tr>
+</table>
+</div>
 
-## 1.Tab - Karakterler:
+- Characters Tab'ında Collection View'de tüm oyuncuların resimleri, isimleri, doğum tarihleri ve nickname'leri listelenir.
+- Herhangi bir character item'ına tıklanınca character detay sayfası açılır.
+- Detay sayfasında karakter ismi, doğum tarihi, nickname'i, mesleği ve görüntülendiği sezon bilgileri bulunur.
+- Show quotes butonu ile quotes ekranına geçiş yapılır.
+- Quotes ekranında karakterlerin replikleri table view'de listelenir.
+- Eğer karakterin repliği yoksa ekrana alert bastırılır.
 
-• Bu ekranda karakterler listelenecektir.
-• CollectionViewda en az karakterin ismi, doğum günü ve takma adı olacaktır.
-• Listeden karaktere bastığımda karakter detay ekranına yönlenmelidir.
+### 2. Episodes Tab
+<div align="center">
+<table>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/96587699/204105324-c844136a-11be-4525-88b5-3968be47c2e5.png" alt="drawing" width="275
+"/></td>  
+<td><img src="https://user-images.githubusercontent.com/96587699/204105325-6b27e675-f67a-4e79-9b10-2112821b1f67.png" alt="drawing" width="275
+"/></td>  
+</tr>
+</table>
+</div>
 
-Karakter Detay Ekranı:
+- Episodes Tab'ında sezonlar ve sezonların altında bölümleri bulunur. Bölümlerin isimleri ve yayın tarihleri yer alır.
+- Herhangi bir bölüme tıklanınca bölümdeki karakterler view'i açılır.
+- Açılan view'de bölümdeki karakterlerin bilgileri yer alır.
+- Sağ üstte bulunan kapat butonu ile view ekrandan kaldırılır.
 
-• Karakterin görseli ile birlikte en az 4 bilgisi yer almalıdır.
-• Ekranda bir button olmalı ve bu button karakterin sözleri(alıntıları) ekranına yönlenmelidir.
+### 3. IMDB Tab
+<div align="center">
+<td><img src="https://user-images.githubusercontent.com/96587699/204105327-ac2d6c80-0c15-42f9-9c0a-009d6e499f85.png" alt="drawing" width="275"/></td>  
+</div>
 
-Karakterin Sözleri-Alıntıları Ekranı:
+- Dizinin IMDB sayfası webview'da gösterilir. Sol üstte sayfa refresh butonu, sağ üstte dizinin IMDB sayfasına geri dönebilmek için homepage butonu bulunur.
 
-• Ekranda karakterin sözleri-alıntıları listelenmelidir.
-
-## 2.Tab - Bölümler:
-
-• Ekranda bölümler listelenmelidir.
-• TableViewda en az ismi ve sezonu bulunmalıdır.
-• Listeden bölüme bastığımda ekranın üstünde bir detay view açılmalıdır.(ViewController değil View olacak).
-• View üzerinde bölümdeki oyuncular yer almalı sağ üst köşede kapat butonu olmalı.
-• Kapat butonu aksiyonu delegate ile yönetilebilmelidir.(Kapata bastığımda liste ekranında print yazılması yeterlidir.)
-
-## 3.Tab- IMDB Sayfası
- 
-• Ekranda Webview ile IMDBde dizinin sayfası açılmalıdır.
-
-2- Clean Code - 1, 2, 3, 4 chapterlar özetlenmelidir.
---
-
-Kolay gelsin :)
+<iframe src="https://drive.google.com/file/d/1hZuEQA447b1Jff_nJA0YCQh879JOy-4Y/preview" width="360" height="640" allow="autoplay"></iframe>

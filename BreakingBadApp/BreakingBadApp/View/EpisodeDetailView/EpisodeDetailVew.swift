@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol subviewRemoveDelegate {
+protocol subviewRemoveDelegate: AnyObject {
     func removeSubview()
 }
 
@@ -16,8 +16,8 @@ class EpisodeDetailVew: UIView {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var actorsCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    weak var closeButtonDelegate: subviewRemoveDelegate?
     var characters = [CharacterModel]()
-    var closeButtonDelegate: subviewRemoveDelegate?
     var characterNames: [String]? {
         didSet {
             actorsCollectionView.reloadData()
@@ -35,7 +35,7 @@ class EpisodeDetailVew: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+
     private func customInit() {
         let nib = UINib(nibName: "EpisodeDetailView", bundle: nil)
         if let view = nib.instantiate(withOwner: self).first as? UIView {
@@ -50,20 +50,20 @@ class EpisodeDetailVew: UIView {
         actorsCollectionView.register(UINib(nibName: "CharacterCollectionCell", bundle: nil), forCellWithReuseIdentifier: "characterCollectionCell")
     }
     
-    
+    // configures components
     func configureComponents() {
-        containerView.layer.cornerRadius = 15
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        containerView.layer.shadowRadius = 15
-        containerView.layer.shadowOpacity = 0.3
-        containerView.layer.masksToBounds = false
+        containerView.layer.cornerRadius        = 15
+        containerView.layer.shadowColor         = UIColor.black.cgColor
+        containerView.layer.shadowOffset        = CGSize(width: 0, height: 0)
+        containerView.layer.shadowRadius        = 15
+        containerView.layer.shadowOpacity       = 0.3
+        containerView.layer.masksToBounds       = false
         
         actorsCollectionView.layer.cornerRadius = 15
-        actorsCollectionView.backgroundColor = .systemGray4
+        actorsCollectionView.backgroundColor    = .systemGray4
     }
     
-    
+    // gets characters in selected episodes from API
     func getCharactersInEpisode() {
         var nameToSearch = ""
         let group = DispatchGroup()

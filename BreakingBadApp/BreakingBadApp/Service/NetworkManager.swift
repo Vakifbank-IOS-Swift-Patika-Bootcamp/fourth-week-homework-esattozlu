@@ -60,7 +60,7 @@ class NetworkManager {
     }
     
     
-    // to get character info from service
+    // to get character info
     class func getCharacters(completion: @escaping ([CharacterModel]?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.characters.url, responseType: [CharacterModel].self) { response, error in
             if let response = response {
@@ -71,7 +71,7 @@ class NetworkManager {
         }
     }
     
-    // to get character info by name from service
+    // gets character info by name
     class func getCharacters(nameToSearch: String ,completion: @escaping ([CharacterModel]?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.charactersByName(nameToSearch).url, responseType: [CharacterModel].self) { response, error in
             if let response = response {
@@ -82,7 +82,7 @@ class NetworkManager {
         }
     }
     
-    // to get images from URL
+    // gets images from URL
     class func getImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
         
         guard let url = URL(string: urlString) else {
@@ -106,7 +106,7 @@ class NetworkManager {
         task.resume()
     }
     
-    // get quotes of a character
+    // gets quotes of a character
     class func getQuotesForCharacter(nameToSearch: String, completion: @escaping ([QuoteModel]?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.quotes(nameToSearch).url, responseType: [QuoteModel].self) { response, error in
             if let response = response {
@@ -117,7 +117,7 @@ class NetworkManager {
         }
     }
     
-    
+    // gets episodes
     class func getEpisodes(completion: @escaping ([EpisodeModel]?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.episodes.url, responseType: [EpisodeModel].self) { response, error in
             if let response = response {

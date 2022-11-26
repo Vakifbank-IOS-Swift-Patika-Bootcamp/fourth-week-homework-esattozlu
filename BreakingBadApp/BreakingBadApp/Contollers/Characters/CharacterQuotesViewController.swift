@@ -28,6 +28,7 @@ class CharacterQuotesViewController: UIViewController {
         congigureComponents()
     }
 
+    // gets quotes of selected character. If there is not, shows alert
     func getQuotes() {
         guard let character = character else { return }
         let fullName = character.name
@@ -52,7 +53,7 @@ class CharacterQuotesViewController: UIViewController {
         }
     }
     
-    
+    // configures components
     func congigureComponents() {
         nameTextField.text = character?.name
         
@@ -73,11 +74,10 @@ extension CharacterQuotesViewController: UITableViewDelegate, UITableViewDataSou
         return quotes?.count ?? 0
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = quotesTableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as? QuotesTableViewCell
         cell?.quoteTextField.text = quotes?[indexPath.row].quote
         return cell ?? UITableViewCell()
     }
-    
-    
 }

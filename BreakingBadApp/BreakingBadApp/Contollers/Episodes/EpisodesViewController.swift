@@ -23,7 +23,7 @@ class EpisodesViewController: UIViewController {
         getEpisodes()
     }
 
-    // to get episodes
+    // to get episodes from API
     func getEpisodes() {
         activityIndicator.startAnimating()
         NetworkManager.getEpisodes { [weak self] episodes, error in
@@ -42,14 +42,12 @@ class EpisodesViewController: UIViewController {
         }
     }
     
-    
+    // Creates Seasoned Episode Array [[EpisodeModel]]
     func createSeasonedEpisodes(episodes: [EpisodeModel]) {
         var seasonSet = Set<String>()
+        var season = 1
         episodes.forEach{ seasonSet.insert($0.season.trimmingCharacters(in: .whitespacesAndNewlines)) }
-        let array = [[EpisodeModel]](repeating: [EpisodeModel](), count: seasonSet.count)
-        var season = 0
-        seasonEpisodes = array
-        episodes.forEach{ seasonSet.insert($0.season) }
+        seasonEpisodes = [[EpisodeModel]](repeating: [EpisodeModel](), count: seasonSet.count)
         
         seasonSet.forEach{ _ in
             episodes.forEach{ episode in
@@ -86,6 +84,10 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         detailView.closeButtonDelegate = self
         detailView.characters.removeAll()
         detailView.characterNames = seasonEpisodes[indexPath.section][indexPath.row].characters
+        detailView.alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            self.detailView.alpha = 1
+        }
         view.addSubview(detailView)
     }
     
@@ -94,7 +96,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         return "Season: \(section+1)"
     }
     
-    
+    // Tableview section headers configuration
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let view = view as! UITableViewHeaderFooterView
         var content = view.defaultContentConfiguration()
@@ -110,9 +112,13 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// Remove subview with animation
 extension EpisodesViewController: subviewRemoveDelegate {
     func removeSubview() {
         print("delegate works")
-        detailView.removeFromSuperview()
+        UIView.animate(withDuration: 0.3, animations: {self.detailView.alpha = 0.0}, completion: {(value: Bool) in
+            self.detailView.removeFromSuperview()
+        })
     }
 }

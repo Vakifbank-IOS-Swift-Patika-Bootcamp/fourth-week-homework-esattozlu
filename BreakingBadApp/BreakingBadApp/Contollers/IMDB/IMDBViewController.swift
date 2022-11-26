@@ -20,7 +20,7 @@ class IMDBViewController: UIViewController {
         loadWebView()
     }
     
-    
+    // loads IMBD page of Breaking Bad
     func loadWebView() {
         let urlString = "https://www.imdb.com/title/tt0903747/?ref_=ttep_ep_tt"
         if let url = URL(string: urlString) {
@@ -33,6 +33,7 @@ class IMDBViewController: UIViewController {
         navigationItem.leftBarButtonItem = refreshButton
     }
     
+    // to turn back to homepage
     @objc func loadHomePage() {
         let urlString = "https://www.imdb.com/title/tt0903747/?ref_=ttep_ep_tt"
         if let url = URL(string: urlString) {
@@ -41,6 +42,7 @@ class IMDBViewController: UIViewController {
     }
 }
 
+// to show and hide acitivity indicator when page is loaded or failed
 extension IMDBViewController: WKNavigationDelegate {
     
        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
